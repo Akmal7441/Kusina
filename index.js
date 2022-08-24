@@ -9,6 +9,11 @@ const uri = 'mongodb+srv://Alimov_1:PCNHrcIKi1Wxufg6@cluster0.qa2s8y6.mongodb.ne
 
 // require
 const homeRouter = require('./routes/home')
+const aboutRouter = require('./routes/about')
+const specialtiesRouter = require('./routes/specialties')
+const reservationRouter = require('./routes/reservation')
+const storiesRouter = require('./routes/stories')
+const contactRouter = require('./routes/contact')
   
 const hbs = create({
   extname: 'hbs',
@@ -40,10 +45,15 @@ db();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+ app.use(express.static(path.join(__dirname, 'public')));
 
 //routing
 app.use('/',homeRouter)
+app.use('/about',aboutRouter)
+app.use('/specialties',specialtiesRouter)
+app.use('/reservation',reservationRouter)
+app.use('/stories',storiesRouter)
+app.use('/contact',contactRouter)
 
 const port = normalizePort(process.env.PORT || 3000);
 app.set("port", port);
