@@ -2,9 +2,7 @@ const {Router} = require('express')
 const router =Router()
 
 router.get('/', (req,res)=>{
-    res.render('stories',{
-        title:'Stories'
-    })
+    res.render('stories')
 })
 
 module.exports = router
